@@ -3,35 +3,20 @@
 @section('title', 'SAR Noticias')
 
 @section('content')
-    @if($search == '')
+    @foreach($news as $new)
     <div class="container">
         <div class="row">
         <div class="col-md-8">
             <div class="card mb-3">
             <img src="https://via.placeholder.com/800x400" class="card-img-top" alt="Imagem da Notícia">
             <div class="card-body">
-                <h5 class="card-title">Título da Notícia</h5>
-                <p class="card-text">Descrição breve da notícia.</p>
-                <p class="card-text"><small class="text-muted">Publicado em: DD/MM/AAAA</small></p>
-            </div>
-            </div>
-            <div class="card mb-3">
-            <img src="https://via.placeholder.com/800x400" class="card-img-top" alt="Imagem da Notícia">
-            <div class="card-body">
-                <h5 class="card-title">Título da Notícia</h5>
-                <p class="card-text">Descrição breve da notícia.</p>
-                <p class="card-text"><small class="text-muted">Publicado em: DD/MM/AAAA</small></p>
-            </div>
-            </div>
-            <div class="card mb-3">
-            <img src="https://via.placeholder.com/800x400" class="card-img-top" alt="Imagem da Notícia">
-            <div class="card-body">
-                <h5 class="card-title">Título da Notícia</h5>
-                <p class="card-text">Descrição breve da notícia.</p>
-                <p class="card-text"><small class="text-muted">Publicado em: DD/MM/AAAA</small></p>
+                <h5 class="card-title">{{ $new->title }}</h5>
+                <p class="card-text">{{ $new->description }}</p>
+                <p class="card-text"><small class="text-muted">{{ $new->updated_at }}</small></p>
             </div>
             </div>
         </div>
+    @endforeach
         <div class="col-md-4">
             <div class="card mb-3">
             <div class="card-body">
@@ -60,7 +45,4 @@
         </div>
         </div>
     </div>
-    @else
-    <p> O usuário está buscando por {{ $search }}
-    @endif
 @endsection
