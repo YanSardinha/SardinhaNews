@@ -24,4 +24,18 @@ class NewsController extends Controller
             'user' => User::findOrFail($id)
         ]);
     }
+
+    public function store(Request $request){
+
+        $news = new News;
+
+        $news->title = $request->title;
+        $news->description_min = $request->description_min;
+        $news->full_description = $request->full_description;
+
+        $news->save();
+
+        return redirect('/');
+
+    }
 }
