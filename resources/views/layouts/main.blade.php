@@ -41,7 +41,12 @@
                 </div>
             </nav>
         </header>
-        @yield('content')
+        <main>
+            @if(session('msg'))
+                <p class="msg">{{session('msg')}}</p>
+            @endif
+            @yield('content')
+        </main>
         <footer class="bg-light py-3">
             <div class="container">
                 <div class="row">
