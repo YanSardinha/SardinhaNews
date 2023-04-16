@@ -9,9 +9,22 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     public function index() {
-        $news = News::all();
 
-        return view('welcome', ['news' => $news]);
+        $search = request('search');
+
+        if($search) {
+
+            $news = News::where([
+                ['title', 'like', '%'.$search.'%']
+            ])->get();
+        
+        }else {
+            $news = News::all();
+        }
+
+        
+
+        return view('welcome', ['news' => $news, 'search' => $search]);
     }
 
     public function create() {
