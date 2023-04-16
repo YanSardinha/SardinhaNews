@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'key_words' => 'array'
+    ];
+
+    protected $dates = [
+        'date'
+    ];
 }

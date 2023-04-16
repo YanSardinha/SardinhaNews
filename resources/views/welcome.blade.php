@@ -13,10 +13,14 @@
                 <h5 class="card-title">{{ $new->title }}</h5>
                 <p class="card-text">{{ $new->description_min }}</p>
                 <p class="card-text"><small class="text-muted">{{ $new->updated_at }}</small></p>
+                <a href="/news/{{$new->id}}" class="btn btn-primary">Saber mais</a>
             </div>
             </div>
         </div>
     @endforeach
+    @if(count($news)==0)
+        <p>Não há notícias</p>
+    @endif
         <div class="col-md-4">
             <div class="card mb-3">
             <div class="card-body">

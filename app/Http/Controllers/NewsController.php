@@ -18,10 +18,11 @@ class NewsController extends Controller
         return view('news.create');
     }
 
-    public function show(string $id): View
-    {
+    public function show($id){
+        $news = News::findOrFail($id);
+        
         return view('news.show', [
-            'user' => User::findOrFail($id)
+            'news' => $news
         ]);
     }
 
@@ -32,6 +33,8 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->description_min = $request->description_min;
         $news->full_description = $request->full_description;
+        $news->key_words = $request->key_words;
+        $news->date = $request->date;
 
         // Image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()){
