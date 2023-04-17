@@ -28,6 +28,8 @@
                 </div>
                 </div>
             </div>
+            </div>
+        </div>
         @endforeach
         @if(count($news)==0 && $search)
             <p>Não foi possível encontrar uma noticia com {{$search}}!<a href="/">Ver todos</a></p>
@@ -60,6 +62,4 @@
             </div>
             </div>
         </div>
-        </div>
-    </div>
 @endsection
